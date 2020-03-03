@@ -1,0 +1,22 @@
+$color-background: #efefef;
+$color-text: #222;
+$color-link: #222;
+$color-link-hover: #567dff;
+
+@mixin flex {
+  display: flex;
+  flex: 1;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-spaced {
+  @include flex;
+  justify-content: space-between;
+}
+
+@mixin flex-end {
+  @include flex;
+  align-items: flex-end;
+}

@@ -1,0 +1,101 @@
+@import '__reset';
+@import '__variables';
+
+html,
+body {
+  font: 16px/16px 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: $color-background;
+  color: $color-text;
+  -webkit-app-region: drag;
+  height: 100vh;
+  min-width: 200px;
+  min-height: 200px;
+}
+
+a {
+  color: $color-link;
+  text-decoration: underline;
+  -webkit-app-region: no-drag;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: $color-link-hover;
+  }
+}
+
+.wrapper {
+  margin: 0 auto;
+  display: block;
+  padding: 1.5rem 1rem;
+  max-width: 920px;
+}
+
+button {
+  -webkit-app-region: no-drag;
+}
+
+.hidden {
+  display: none;
+}
+
+// Tweak CSS for modal from https://github.com/chenjiahan/rodal/issues/27#issuecomment-381396700
+.rodal,
+.rodal-mask {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: fixed !important;
+  padding: 10px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.rodal-dialog {
+  display: flex;
+  margin: auto;
+  height: auto !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  background-color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 1.25em;
+  border-radius: 0.3125em;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: relative !important;
+  width: 32em;
+  max-width: 100%;
+}
+
+// Tweak CSS for switch
+.switch {
+  background-color: #ccc;
+  border: none;
+  border-radius: 20px;
+
+  &.on {
+    background-color: #000;
+  }
+}
+.switch-toggle {
+  border-radius: 20px;
+  box-shadow: none;
+}
