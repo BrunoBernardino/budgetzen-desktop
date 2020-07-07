@@ -89,7 +89,7 @@
     "@typescript-eslint/parser": "2.17.0",
     "babel-jest": "25.1.0",
     "css-loader": "3.4.2",
-    "electron": "7.1.14",
+    "electron": "7.2.4",
     "electron-store": "5.1.0",
     "eslint": "6.8.0",
     "eslint-config-airbnb": "18.0.1",
