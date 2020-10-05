@@ -16,11 +16,12 @@ let mainWindow: Electron.BrowserWindow;
 const createWindow = () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    height: 550,
-    width: 904,
+    height: 560,
+    width: 905,
     titleBarStyle: 'hidden',
     webPreferences: {
       nodeIntegration: true,
+      enableRemoteModule: true,
     },
   });
 
@@ -53,7 +54,7 @@ const createWindow = () => {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
+app.whenReady().then(createWindow);
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {

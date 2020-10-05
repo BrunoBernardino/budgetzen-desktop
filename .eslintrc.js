@@ -59,6 +59,11 @@ const eslint = {
     'func-names': 'off',
     'space-before-function-paren': 'off',
     'consistent-return': 'off',
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': ['error'],
+    '@typescript-eslint/ban-ts-comment': 'off',
+    'react/require-default-props': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
   parserOptions: {
     ecmaFeatures: {

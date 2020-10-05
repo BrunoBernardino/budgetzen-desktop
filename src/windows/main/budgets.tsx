@@ -60,9 +60,7 @@ const NoBudgetsFound = () => {
 const defaultBudget = {
   id: '',
   name: '',
-  month: moment()
-    .startOf('month')
-    .format('YYYY-MM'),
+  month: moment().startOf('month').format('YYYY-MM'),
   value: 100,
 };
 

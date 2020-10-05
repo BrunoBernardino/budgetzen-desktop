@@ -10,6 +10,7 @@ interface ButtonProps {
   onClick: () => void;
   type: ButtonType;
   className?: string;
+  isDisabled?: boolean;
 }
 interface ButtonState {}
 
@@ -51,6 +52,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   font-size: ${fontSizes.button}px;
   cursor: pointer;
   outline: none;
+  border: none;
 
   &:hover,
   &:focus,
@@ -65,10 +67,14 @@ class Button extends Component<ButtonProps, ButtonState> {
   };
 
   render() {
-    const { text, type, className } = this.props;
+    const { text, type, className, isDisabled } = this.props;
     return (
       <Container className={className}>
-        <StyledButton buttonType={type} onClick={this.onClick}>
+        <StyledButton
+          buttonType={type}
+          onClick={this.onClick}
+          disabled={isDisabled}
+        >
           {text}
         </StyledButton>
       </Container>

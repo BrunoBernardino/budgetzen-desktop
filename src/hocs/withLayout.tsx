@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import RxDB, { RxDatabase } from 'rxdb';
+import { RxDatabase, isRxDatabase } from 'rxdb';
 import moment from 'moment';
 import { remote } from 'electron';
 
@@ -122,7 +122,7 @@ const withLayout: any = (WrappedComponent: any, sharedOptions: any) => {
 
     ensureDBConnection = async (forceReload = false) => {
       if (
-        !RxDB.isRxDatabase(this.db) ||
+        !isRxDatabase(this.db) ||
         !this.db ||
         !this.db.budgets ||
         !this.db.expenses
@@ -180,12 +180,8 @@ const withLayout: any = (WrappedComponent: any, sharedOptions: any) => {
       // If this is for the current or next month and there are no budgets, create budgets based on the previous/current month.
       if (budgets.length === 0 && !isComingFromEmptyState) {
         const currentMonth = moment().format('YYYY-MM');
-        const nextMonth = moment()
-          .add(1, 'month')
-          .format('YYYY-MM');
-        const previousMonth = moment()
-          .subtract(1, 'month')
-          .format('YYYY-MM');
+        const nextMonth = moment().add(1, 'month').format('YYYY-MM');
+        const previousMonth = moment().subtract(1, 'month').format('YYYY-MM');
 
         if (
           (monthToLoad && monthToLoad === nextMonth) ||
@@ -229,9 +225,7 @@ const withLayout: any = (WrappedComponent: any, sharedOptions: any) => {
     };
 
     changeMonthInView = async (newMonth: string) => {
-      const nextMonth = moment()
-        .add(1, 'month')
-        .format('YYYY-MM');
+      const nextMonth = moment().add(1, 'month').format('YYYY-MM');
 
       if (newMonth > nextMonth) {
         this.showAlert('Warning', 'Cannot travel further into the future!');

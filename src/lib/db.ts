@@ -1,4 +1,11 @@
-import RxDB, { RxDatabase, RxJsonSchema, RxDocument } from 'rxdb';
+import {
+  RxDatabase,
+  RxJsonSchema,
+  RxDocument,
+  PouchDB,
+  createRxDatabase,
+  addRxPlugin,
+} from 'rxdb';
 import moment from 'moment';
 import Store from 'electron-store';
 
@@ -87,9 +94,9 @@ const expenseSchema: RxJsonSchema<T.Expense> = {
   required: ['cost', 'description', 'budget', 'date'],
 };
 
-RxDB.plugin(require('pouchdb-adapter-idb'));
-RxDB.plugin(require('pouchdb-adapter-http'));
-RxDB.PouchDB.plugin(require('pouchdb-erase'));
+addRxPlugin(require('pouchdb-adapter-idb'));
+addRxPlugin(require('pouchdb-adapter-http'));
+PouchDB.plugin(require('pouchdb-erase'));
 
 const localDbName = 'localdb_budgetscalm_v0';
 
@@ -109,7 +116,7 @@ const DB: DB = {
     try {
       const syncToken = DB.fetchSetting('syncToken');
 
-      const db = await RxDB.create({
+      const db = await createRxDatabase({
         name: localDbName,
         adapter: 'idb',
         multiInstance: false,
@@ -173,7 +180,7 @@ const DB: DB = {
       .reverse();
   },
   fetchSetting: (name) => {
-    const value = store.get(`setting_${name}`);
+    const value = store.get(`setting_${name}`) as string;
     return value || '';
   },
   saveBudget: async (db, budget) => {
@@ -412,13 +419,13 @@ const DB: DB = {
     await localDb.expenses.remove();
 
     // NOTE: The erase below doesn't work locally, so we need the two lines above
-    const db = new RxDB.PouchDB(localDbName);
+    const db = new PouchDB(localDbName);
     // @ts-ignore erase comes from pouchdb-erase
     await db.erase();
 
     const syncToken = DB.fetchSetting('syncToken');
     if (syncToken.length > 0) {
-      const remoteDb = new RxDB.PouchDB(syncToken);
+      const remoteDb = new PouchDB(syncToken);
       // @ts-ignore erase comes from pouchdb-erase
       await remoteDb.erase();
     }

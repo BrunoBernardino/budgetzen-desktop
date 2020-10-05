@@ -32,7 +32,7 @@ const Container = styled.section`
 const Logo = styled.img`
   margin-top: 10px;
   margin-bottom: -20px;
-  height: 50px;
+  height: 40px;
   resize-mode: contain;
   align-self: center;
 `;
@@ -148,7 +148,7 @@ class AddExpense extends Component<AddExpenseProps, AddExpenseState> {
 
   render() {
     const { budgets } = this.props;
-    const { cost, description, budget, date } = this.state;
+    const { cost, description, budget, date, isSubmitting } = this.state;
 
     const budgetsToShow = [...budgets];
 
@@ -213,8 +213,9 @@ class AddExpense extends Component<AddExpenseProps, AddExpenseState> {
           onKeyDown={this.onKeyDown}
         />
         <AddButton
+          isDisabled={isSubmitting}
           onClick={() => this.addExpense()}
-          text="Add Expense"
+          text={isSubmitting ? 'Adding...' : 'Add Expense'}
           type="primary"
         />
       </Container>
