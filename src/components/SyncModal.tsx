@@ -127,7 +127,7 @@ class SyncModal extends Component<SyncModalProps, SyncModalState> {
   };
 
   onGetToken = async () => {
-    shell.openExternal('https://budgets.calm.sh/get-sync-token');
+    shell.openExternal('https://budgetzen.net/get-sync-token');
   };
 
   onForceSync = async () => {

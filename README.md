@@ -1,8 +1,8 @@
-# Budgets, calm.
+# Budget Zen
 
-[![](https://github.com/BrunoBernardino/BudgetsCalm-desktop/workflows/Run%20Tests/badge.svg)](https://github.com/BrunoBernardino/BudgetsCalm-desktop/actions?workflow=Run+Tests)
+[![](https://github.com/BrunoBernardino/budgetzen-macos/workflows/Run%20Tests/badge.svg)](https://github.com/BrunoBernardino/budgetzen-macos/actions?workflow=Run+Tests)
 
-This is the repo for the desktop electron/macOS app. Website is at https://budgets.calm.sh
+This is the repo for the desktop electron/macOS app. Website is at https://budgetzen.net
 
 ## Development
 
@@ -15,7 +15,7 @@ make test  # runs lint + tests
 
 ## Deployment
 
-Make sure you've downloaded the appropriate `*.provisionprofile` from https://developer.apple.com/account/resources/profiles/list, save it as `BudgetsCalm-macOS.provisionprofile`
+Make sure you've downloaded the appropriate `*.provisionprofile` from https://developer.apple.com/account/resources/profiles/list, save it as `BudgetZen-macOS.provisionprofile`
 
 ```bash
 make deploy  # packages to try locally

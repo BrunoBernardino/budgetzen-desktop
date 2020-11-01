@@ -249,7 +249,7 @@ class Settings extends Component<SettingsProps, SettingsState> {
                 type="secondary"
               />
               <HelpButton
-                onClick={() => shell.openExternal('mailto:budgets@calm.sh')}
+                onClick={() => shell.openExternal('mailto:help@budgetzen.net')}
                 text="Get Help"
                 type="primary"
               />

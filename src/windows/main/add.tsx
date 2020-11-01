@@ -164,7 +164,7 @@ class AddExpense extends Component<AddExpenseProps, AddExpenseState> {
 
     return (
       <Container>
-        <Logo src={LogoImage} alt="Budgets, Calm." />
+        <Logo src={LogoImage} alt="Budget Zen" />
         <Label>Cost</Label>
         <Input
           placeholder="10.99"

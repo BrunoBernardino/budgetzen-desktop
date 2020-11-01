@@ -79,7 +79,7 @@ class ImportExportModal extends Component<
   }
 
   onLearnMore = async () => {
-    shell.openExternal('https://budgets.calm.sh/import-export-file-format');
+    shell.openExternal('https://budgetzen.net/import-export-file-format');
   };
 
   onRequestImport = async () => {
