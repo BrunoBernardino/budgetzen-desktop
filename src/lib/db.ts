@@ -9,7 +9,7 @@ import {
 import moment from 'moment';
 import Store from 'electron-store';
 
-import { sortByDate, sortByName } from './utils';
+import { sortByDate, sortByName, splitArrayInChunks } from './utils';
 
 import * as T from './types';
 
@@ -411,8 +411,29 @@ const DB: DB = {
       });
     }
 
-    await db.budgets.bulkInsert(budgets);
-    await db.expenses.bulkInsert(expenses);
+    const chunkLength = 200;
+
+    if (budgets.length > chunkLength) {
+      const chunkedBudgets = splitArrayInChunks(budgets, chunkLength);
+      for (const budgetsChunk of chunkedBudgets) {
+        await db.budgets.bulkInsert(budgetsChunk);
+        // Wait a second, to avoid hitting rate limits
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+      }
+    } else {
+      await db.budgets.bulkInsert(budgets);
+    }
+
+    if (expenses.length > chunkLength) {
+      const chunkedExpenses = splitArrayInChunks(expenses, chunkLength);
+      for (const expensesChunk of chunkedExpenses) {
+        await db.expenses.bulkInsert(expensesChunk);
+        // Wait a second, to avoid hitting rate limits
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+      }
+    } else {
+      await db.expenses.bulkInsert(expenses);
+    }
   },
   exportAllData: async (db) => {
     // NOTE: The queries look weird because .dump() and simple .find() were returning indexes and other stuff

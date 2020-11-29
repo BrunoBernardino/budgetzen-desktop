@@ -1,8 +1,8 @@
 {
   "name": "budgetzen-macos",
   "productName": "Budget Zen",
-  "version": "1.1.1",
-  "build": "ZbJ5eDMh",
+  "version": "1.2.0",
+  "build": "4YRZDJuB",
   "description": "Desktop app for Budget Zen",
   "main": ".webpack/main",
   "scripts": {
@@ -35,7 +35,7 @@
         "appBundleId": "com.emotionloop.BudgetsCalm-macOS",
         "appCategoryType": "public.app-category.finance",
         "appCopyright": "Bruno Bernardino",
-        "buildVersion": 9
+        "buildVersion": 10
       },
       "makers": [
         {
