@@ -46,5 +46,4 @@ deploy/mas/prod:
 
 .PHONY: deploy/snap/prod
 deploy/snap/prod:
-	@#snapcraft upload --release=stable out/make/snap/x64/budgetzen-desktop_*.snap
 	snapcraft upload --release=stable dist/budgetzen-desktop_*.snap

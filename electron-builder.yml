@@ -2,6 +2,7 @@ mac:
   icon: public/icon.icns
 linux:
   category: Utility
+  executableName: budgetzen
   target:
     - target: snap
       arch:
