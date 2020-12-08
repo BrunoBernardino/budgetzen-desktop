@@ -43,3 +43,6 @@ deploy/mas/prod:
 	npm run sign -- --identity=$(OSX_SIGN_IDENTITY)
 	npm run flat -- --identity=$(OSX_FLAT_IDENTITY)
 	@# npm run publish -- not really used
+
+.PHONY deploy/snap/prod
+	snapcraft upload --release=stable out/make/snap/x64/budgetzen-desktop_*.snap

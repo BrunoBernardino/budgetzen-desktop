@@ -34,6 +34,8 @@ security find-identity -v
 
 ```bash
 make deploy/snap  # packages to try locally and upload (generated .snap file)
+sudo snap install out/make/snap/x64/budgetzen-desktop_*.snap  # installs app locally to try
+make deploy/snap/prod  # uploads app via snapcraft
 ```
 
 Upload file to https://snapcraft.io/budgetzen/listing
