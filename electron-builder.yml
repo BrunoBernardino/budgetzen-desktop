@@ -1,0 +1,8 @@
+mac:
+  icon: public/icon.icns
+linux:
+  category: Utility
+  target:
+    - target: snap
+      arch:
+        - x64

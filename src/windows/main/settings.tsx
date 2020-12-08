@@ -24,7 +24,7 @@ interface SettingsState {
   currency: string;
 }
 
-const { build: appBuild, version: appVersion } = appPackage;
+const { buildHash: appBuild, version: appVersion } = appPackage;
 
 const SettingsButton = styled(IconButton)`
   top: 8px;

@@ -2,14 +2,15 @@
   "name": "budgetzen-desktop",
   "productName": "Budget Zen",
   "version": "1.2.0",
-  "build": "4YRZDJuB",
+  "buildHash": "4YRZDJuB",
   "description": "Desktop app for Budget Zen",
   "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package --platform=mas",
     "make/mas": "electron-forge make --platform=mas",
-    "make/snap": "electron-forge make --platform=linux",
+    "make/snap/forge": "electron-forge make --platform=linux",
+    "make/snap": "electron-builder --linux snap",
     "sign": "electron-osx-sign 'out/Budget Zen-mas-x64/Budget Zen.app' --provisioning-profile='BudgetZen-macOS.provisionprofile' --entitlements='entitlements.plist' --platform=mas --version=10.1.3 --type=distribution",
     "flat": "electron-osx-flat 'out/Budget Zen-mas-x64/Budget Zen.app' --platform=mas",
     "publish": "electron-forge publish",
@@ -48,9 +49,6 @@
         {
           "name": "@electron-forge/maker-snap",
           "config": {
-            "appConfig": {
-              "base": "core20"
-            },
             "features": {
               "home": true,
               "webgl": true
@@ -105,6 +103,7 @@
     "babel-jest": "26.5.0",
     "css-loader": "4.3.0",
     "electron": "10.1.3",
+    "electron-builder": "22.9.1",
     "electron-store": "6.0.0",
     "eslint": "7.10.0",
     "eslint-config-airbnb": "18.2.0",

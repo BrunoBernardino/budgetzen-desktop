@@ -42,5 +42,5 @@ Upload file to https://snapcraft.io/budgetzen/listing
 
 ## TODOs:
 
-- [ ] When running `make deploy`, update/write the package.json:build and buildVersion automatically
+- [ ] When running `make deploy`, update/write the package.json:buildHash and version properties automatically
 - [ ] Properly tweak UI for dark/light mode
