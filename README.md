@@ -1,8 +1,8 @@
-# Budget Zen
+# Budget Zen - Desktop
 
-[![](https://github.com/BrunoBernardino/budgetzen-macos/workflows/Run%20Tests/badge.svg)](https://github.com/BrunoBernardino/budgetzen-macos/actions?workflow=Run+Tests)
+[![](https://github.com/BrunoBernardino/budgetzen-desktop/workflows/Run%20Tests/badge.svg)](https://github.com/BrunoBernardino/budgetzen-desktop/actions?workflow=Run+Tests)
 
-This is the repo for the desktop electron/macOS app. Website is at https://budgetzen.net
+This is the repo for the desktop electron app (currently only built for macOS). Website is at https://budgetzen.net
 
 ## Development
 
