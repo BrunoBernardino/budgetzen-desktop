@@ -35,8 +35,7 @@ deploy/mas:
 .PHONY: deploy/snap
 deploy/snap:
 	@# debugging for now
-	export DEBUG=electron-installer-snap:snapcraft
-	npm run make/snap
+	DEBUG=electron-installer-snap:snapcraft npm run make/snap
 
 .PHONY: deploy/mas/prod
 deploy/mas/prod:
