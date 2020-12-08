@@ -48,6 +48,9 @@
         {
           "name": "@electron-forge/maker-snap",
           "config": {
+            "appConfig": {
+              "base": "core20"
+            },
             "features": {
               "home": true,
               "webgl": true
