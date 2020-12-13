@@ -35,10 +35,17 @@ security find-identity -v
 ```bash
 make deploy/snap  # packages to try locally and upload (generated .snap file)
 sudo snap install dist/budgetzen-desktop_*.snap  # installs app locally to try
-make deploy/snap/prod  # uploads app via snapcraft
+make deploy/snap/prod  # uploads app via snapcraft to https://snapcraft.io/budgetzen/listing
 ```
 
-Upload file to https://snapcraft.io/budgetzen/listing
+## Deployment (Windows)
+
+```bash
+make deploy/win  # packages to try locally and upload (generated .exe file) -- requires `wine` to be installed (`brew install --cask wine-stable`) if running on macOS
+wine install dist/Budget*.exe  # installs app locally to try
+```
+
+Upload file to [Budget Zen's website](https://budgetzen.net/Budget Zen Setup.exe).
 
 ## TODOs:
 

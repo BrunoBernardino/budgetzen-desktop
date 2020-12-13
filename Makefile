@@ -36,6 +36,10 @@ deploy/mas:
 deploy/snap:
 	npm run make/snap
 
+.PHONY: deploy/win
+deploy/win:
+	npm run make/win
+
 .PHONY: deploy/mas/prod
 deploy/mas/prod:
 	@test -n "$(OSX_SIGN_IDENTITY)" || (echo "Please define an OSX_SIGN_IDENTITY variable" ; exit 1)
