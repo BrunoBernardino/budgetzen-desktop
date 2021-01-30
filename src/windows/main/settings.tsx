@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Switch from 'react-toggle-switch';
 import { shell } from 'electron';
 import Rodal from 'rodal';
+import os from 'os';
 
 import SegmentedControl from '../../components/SegmentedControl';
 import Button from '../../components/Button';
@@ -221,7 +222,8 @@ class Settings extends Component<SettingsProps, SettingsState> {
             </SyncContainer>
             <Note>Sync expenses and budgets across devices.</Note>
             <Note>
-              Press <Code>⌘R</Code> to forcefully refresh data.
+              Press <Code>{os.platform() === 'darwin' ? '⌘' : 'CTRL+'}R</Code>{' '}
+              to forcefully refresh data.
             </Note>
 
             <Label>Currency</Label>
