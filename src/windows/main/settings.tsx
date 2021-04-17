@@ -115,8 +115,8 @@ const Code = styled.code`
   line-height: 1em;
 `;
 
-const currencyLabels = ['$', '€'];
-const currencyValues = ['USD', 'EUR'];
+const currencyLabels = ['$', '€', '£'];
+const currencyValues = ['USD', 'EUR', 'GBP'];
 
 class Settings extends Component<SettingsProps, SettingsState> {
   constructor(props: SettingsProps) {
@@ -197,6 +197,10 @@ class Settings extends Component<SettingsProps, SettingsState> {
       currency,
     } = this.state;
 
+    const selectedCurrencyIndex = currencyValues.findIndex(
+      (_currency) => currency === _currency,
+    );
+
     return (
       <>
         <SettingsButton
@@ -229,7 +233,9 @@ class Settings extends Component<SettingsProps, SettingsState> {
             <Label>Currency</Label>
             <StyledSegmentedControl
               values={currencyLabels}
-              selectedIndex={currency === '' || currency === 'USD' ? 0 : 1}
+              selectedIndex={
+                selectedCurrencyIndex === -1 ? 0 : selectedCurrencyIndex
+              }
               onChange={(selectedSegmentIndex: number) => {
                 this.setState(
                   {

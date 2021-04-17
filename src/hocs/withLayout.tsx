@@ -21,7 +21,7 @@ interface LayoutState {
 }
 
 const notificationTimeoutInMS = 10 * 1000;
-const reloadTimeoutInMS = 60 * 1000;
+const reloadTimeoutInMS = 15 * 60 * 1000;
 
 const withLayout: any = (WrappedComponent: any, sharedOptions: any) => {
   class LayoutComponent extends Component<LayoutProps, LayoutState> {
