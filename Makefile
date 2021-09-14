@@ -28,26 +28,18 @@ lint:
 pretty:
 	npm run pretty
 
-.PHONY: deploy/mas
-deploy/mas:
+.PHONY: build/macos
+build/macos:
 	npm run make/mas
+
+.PHONY: build/snap
+build/snap:
+	npm run make/snap
+
+.PHONY: build/win
+build/win:
+	npm run make/win
 
 .PHONY: deploy/snap
 deploy/snap:
-	npm run make/snap
-
-.PHONY: deploy/win
-deploy/win:
-	npm run make/win
-
-.PHONY: deploy/mas/prod
-deploy/mas/prod:
-	@test -n "$(OSX_SIGN_IDENTITY)" || (echo "Please define an OSX_SIGN_IDENTITY variable" ; exit 1)
-	@test -n "$(OSX_FLAT_IDENTITY)" || (echo "Please define an OSX_FLAT_IDENTITY variable" ; exit 1)
-	npm run sign -- --identity=$(OSX_SIGN_IDENTITY)
-	npm run flat -- --identity=$(OSX_FLAT_IDENTITY)
-	@# npm run publish -- not really used
-
-.PHONY: deploy/snap/prod
-deploy/snap/prod:
 	snapcraft upload --release=stable dist/budgetzen-desktop_*.snap
