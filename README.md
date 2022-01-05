@@ -4,7 +4,7 @@
 
 This is the repo for the desktop electron app (macOS via local build, Linux via Snapcraft, Windows via download). Website is at https://budgetzen.net
 
-**NOTE**: The app is no longer available in the App Store for ideological reasons. You can still build it from this repo yourself, or download + install the EXE from the [Releases page](https://github.com/BrunoBernardino/budgetzen-desktop/releases). Personally, I'm using the [web app version](https://app.budgetzen.net) now for both mobile and desktop, though.
+**NOTE**: The app is no longer available in the App Store for ideological reasons. You can still build it from this repo yourself, or download + install the EXE from the [Releases page](https://github.com/BrunoBernardino/budgetzen-desktop/releases). The new, end-to-end encrypted version (v2) is currently available as a [PWA/web app](https://app.budgetzen.net), which works for both mobile and desktop, and still has the source code publicly available.
 
 ## Development
 
